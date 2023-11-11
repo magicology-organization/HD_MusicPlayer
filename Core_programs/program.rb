@@ -12,8 +12,8 @@ class MusicPlayer < Gosu::Window
         @wd.draw()
     end
     def update()
-        if Gosu::button_down?(Gosu::MSLeft)
-            @wd.selectedShape(mouse_x, mouse_y)
+        if Gosu::button_down?(Gosu::MS_LEFT)
+            @wd.selected()
         end
         
     end

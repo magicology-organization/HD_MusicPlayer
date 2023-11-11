@@ -1,7 +1,7 @@
 require 'Gosu'
 
 class Drawing
-    aatr_writer :color 
+    attr_writer :color 
     def initialize( color = Gosu::Color::Black)
         @color = color 
         @shapes = Array.new()    #later be used for adding album images

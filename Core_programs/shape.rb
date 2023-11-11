@@ -3,7 +3,7 @@ require 'Gosu'
 class Shape
     attr_writer :color, :height, :width
     attr_accessor :selected, :x, :y
-    def initialize( x 50, y = 50, width = 80, height = 90, color = Gosu::Color::RED)
+    def initialize( x = 50, y = 50, width = 80, height = 90, color = Gosu::Color::RED)
         @color = color 
         @height = height
         @width = width
