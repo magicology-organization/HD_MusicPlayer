@@ -24,12 +24,12 @@ class Drawing
         end
     end
     def selectedShape(mouse_x, mouse_y)
-        @shapes each do |shape|
+        @shapes.each do |shape|
             shape.selectedShape = shape.IsAt(mouse_x, mouse_y)
         end
     end
     def selectedButton(mouse_x, mouse_y)
-        @buttons each do |button|
+        @buttons.each do |button|
             buttons.selectedButton = shape.IsAt(mouse_x, mouse_y)
         end
     end
