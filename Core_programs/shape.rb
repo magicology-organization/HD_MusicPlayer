@@ -3,7 +3,7 @@ require 'Gosu'
 class Shape
     attr_writer :color, :height, :width
     attr_accessor :selected, :x, :y
-    def initialize( x = 50, y = 50, width = 80, height = 90, color = Gosu::Color::RED)
+    def initialize( x = 0, y = 0, width = 80, height = 90, color = Gosu::Color::RED)
         @color = color 
         @height = height
         @width = width
@@ -12,10 +12,10 @@ class Shape
         @selected = false 
     end
     def draw()
-        if @selected
+        if (@selected)
             draw_outline()    #or hover button
         end
-        Gosu.draw_rect(@x, @y, @height, @width, @color) 
+        Gosu.draw_rect(@x, @y, @width, @height, @color) 
     end
     def draw_outline()
         Gosu.draw_rect(@x - 2, @y - 2, @width + 4, @height + 4, Gosu::Color::WHITE)

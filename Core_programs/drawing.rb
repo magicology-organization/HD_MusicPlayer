@@ -23,9 +23,9 @@ class Drawing
             buttons.draw()
         end
     end
-    def selectedShape(mouse_x, mouse_y)
+    def selected(mouse_x, mouse_y)
         @shapes.each do |shape|
-            shape.selectedShape = shape.IsAt(mouse_x, mouse_y)
+          shape.selected = shape.IsAt(mouse_x, mouse_y)
         end
     end
     def selectedButton(mouse_x, mouse_y)
