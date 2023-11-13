@@ -1,19 +1,23 @@
 require 'gosu'
-require './drawing.rb'
-require './shape.rb'
+require './Core_programs/Drawing.rb'
+require './Core_programs/Shape.rb'
 
 class MusicPlayer < Gosu::Window
     def initialize
         super(700, 700, false)
         self.caption = "Music player"
-        @wd = Shape.new(0, 0, 230, 230, Gosu::Color::BLUE)
+        @drawing = Drawing.new(Gosu::Color::WHITE)
     end
     def draw
-        @wd.draw()
+        @drawing.draw()
     end
     def update
+        if Gosu.button_down?(Gosu::MsRight)
+            shape = Shape.new(mouse_x, mouse_y, 10, 10, Gosu::Color::GREEN)
+            @drawing.addShape(shape)
+        end
         if Gosu.button_down?(Gosu::MsLeft)
-            @wd.selected(mouse_x, mouse_y)
+            @drawing.select(mouse_x, mouse_y)
         end
     end
 end
@@ -23,4 +27,3 @@ window = MusicPlayer.new()
 window.show
 
 
-    
