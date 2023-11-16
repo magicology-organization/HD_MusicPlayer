@@ -10,7 +10,7 @@ class TestWindow < Gosu::Window
     super(800, 800, false)
     self.caption = "Song Player"
     # @font = Gosu::Font.new(80)
-    @menu = MsMenu.new("Classical")
+    @menu = MsMenu.new("AOT")
   end
   def draw()
     @menu.draw()
