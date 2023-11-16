@@ -19,4 +19,4 @@ def print_music_names(directory)
 end
 
 # Replace 'your_directory_path' with the path of the directory containing your music files
-print_music_names('./Albums/AOT')
+print_music_names('../Albums/AOT')

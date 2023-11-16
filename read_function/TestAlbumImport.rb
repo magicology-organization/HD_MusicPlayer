@@ -8,4 +8,4 @@ def print_folder_names(directory)
     puts "found:#{folder}!"
   end
 end
-print_folder_names('./Albums')
+print_folder_names('../Albums')
