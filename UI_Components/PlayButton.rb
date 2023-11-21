@@ -11,6 +11,6 @@ class PlayButton < Shape
         @song_path = music_path
     end
     def emit_song()
-        return "./Albums/#{@song_path}"
+        return "#{@song_path}"
     end
 end

@@ -24,4 +24,7 @@ class Drawing
           shape.selected = shape.IsAt(mouse_x, mouse_y)
         end
     end
+    def event(mouse_x, mouse_y)
+
+    end
 end

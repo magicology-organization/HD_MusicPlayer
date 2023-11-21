@@ -3,19 +3,22 @@ require './UI_Components/PlayButton.rb'
 
 class MsMenu
   attr_writer :color
+  attr_accessor :functionButton
   def initialize(album)
     @color = Gosu::Color::WHITE
-    @buttons = Array.new()
     @newTrack
     @currentTrack
     initMenu(album)
+    @functionButton = Shape.new(0, 0, 50, 50, Gosu::Color::RED)
   end
 
   def initMenu(album)
-    trackNames = print_music_names("./Albums/#{album}")
-    currentXPos = 0;
+    @buttons = Array.new()
+    trackNames = print_music_names("#{album}")
+    puts "#{album}"
+    currentXPos = 80;
     trackNames.each do |track|
-      btn = PlayButton.new(currentXPos, 0, 50, 50, Gosu::Color::BLUE, "#{album}/#{track}")
+      btn = PlayButton.new(currentXPos, 80, 50, 50, Gosu::Color::BLUE, "#{album}/#{track}")
       @buttons << btn
       currentXPos += 80
     end
@@ -26,6 +29,7 @@ class MsMenu
     @buttons.each do |btn|
       btn.draw()
     end
+    @functionButton.draw()
   end
   def selected(mouse_x, mouse_y)
     @buttons.each do |btn|

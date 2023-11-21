@@ -12,12 +12,13 @@ class TestWindow < Gosu::Window
     @stateMenu = Drawing.new(Gosu::Color::RED, Gosu::Color::BLUE)
     @stateAlbum = Drawing.new(Gosu::Color::BLUE, Gosu::Color::RED)
     @stateMenu.functionButton.selected = true
+    @arrayMenu = Array.new([@stateAlbum, @stateMenu])
   end
   def draw()
-    if(@stateAlbum.functionButton.selected)
-      @stateAlbum.draw()
-    else
-      @stateMenu.draw()
+    @arrayMenu.each do |menu|
+      if(menu.functionButton.selected)
+        menu.draw()
+      end
     end
   end
   def update()
