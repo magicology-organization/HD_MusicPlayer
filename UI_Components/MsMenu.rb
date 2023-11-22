@@ -5,11 +5,11 @@ class MsMenu
   attr_writer :color
   attr_accessor :functionButton
   def initialize(album)
-    @color = Gosu::Color::WHITE
+    @color = Gosu::Color::GREEN
     @newTrack
     @currentTrack
     initMenu(album)
-    @functionButton = Shape.new(0, 0, 50, 50, Gosu::Color::RED)
+    @functionButton = Shape.new(0, 200, 50, 50, Gosu::Color::RED)
   end
 
   def initMenu(album)
@@ -32,9 +32,14 @@ class MsMenu
     @functionButton.draw()
   end
   def selected(mouse_x, mouse_y)
+    flag = false
     @buttons.each do |btn|
       btn.selected = btn.IsAt(mouse_x, mouse_y)
+      if(btn.IsAt(mouse_x, mouse_y))
+        flag = true
+      end
     end
+    return flag
   end
   def playSelectedSongs
     @buttons.each do |btn|

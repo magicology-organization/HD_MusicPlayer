@@ -4,7 +4,7 @@ require './UI_Components/MsMenu.rb'
 
 class AlbumMenu < MsMenu
   def initialize(albumPath)
-    @color = Gosu::Color::WHITE
+    @color = Gosu::Color::GREEN
     @buttons = Array.new()
     initMenu(albumPath)
     @functionButton = Shape.new(0, 0, 100, 100, Gosu::Color::RED)
@@ -36,6 +36,7 @@ class AlbumMenu < MsMenu
     @buttons.each do |btn|
       if(btn.selected)
         puts(btn.emit_song())
+        return btn.emit_song()
       end
     end
   end
