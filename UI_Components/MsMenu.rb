@@ -9,18 +9,18 @@ class MsMenu
     @newTrack
     @currentTrack
     initMenu(album)
-    @functionButton = Shape.new(0, 200, 50, 50, Gosu::Color::RED)
+    @functionButton = Shape.new(13, 13, 55, 55, Gosu::Color::FUCHSIA)
   end
 
   def initMenu(album)
     @buttons = Array.new()
     trackNames = print_music_names("#{album}")
     puts "#{album}"
-    currentXPos = 80;
+    currentYPos = 80;
     trackNames.each do |track|
-      btn = PlayButton.new(currentXPos, 80, 50, 50, Gosu::Color.argb(80, 102, 255, 51), "#{album}/#{track}")
+      btn = PlayButton.new(200, currentYPos, 500, 80, Gosu::Color.argb(100, 102, 255, 51), "#{album}/#{track}")
       @buttons << btn
-      currentXPos += 80
+      currentYPos += 150
     end
   end
 
