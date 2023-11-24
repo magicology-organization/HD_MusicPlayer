@@ -8,7 +8,7 @@ require './UI_Components/AlbumMenu.rb'
 
 class TestWindow < Gosu::Window
   def initialize()
-    super(800, 800, false)
+    super(1920, 1080, false)
     self.caption = "Song Player"
     # @font = Gosu::Font.new(80)
     @albumMenu = AlbumMenu.new("./Albums")
@@ -18,6 +18,8 @@ class TestWindow < Gosu::Window
   end
 
   def draw()
+    bg = Gosu::Image.new("asserts/images/bg.jpg")
+    bg.draw(0, 0)
     @arrayMenu.each do |menu|
       if(menu.functionButton.selected)
         menu.draw()
