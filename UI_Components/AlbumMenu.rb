@@ -11,11 +11,18 @@ class AlbumMenu < MsMenu
   end
   def initMenu(albumPath)
     trackNames = print_folder_names(albumPath)
+    cnt = 1
+    currentXPos = 20
     currentYPos = 70;
     trackNames.each do |track|
-      btn = PlayButton.new(1500, currentYPos, 300 , 300, Gosu::Color.argb(100, 102, 255, 51), "#{albumPath}/#{track}")
+      btn = PlayButton.new(currentXPos, currentYPos, 900 , 300, Gosu::Color.argb(100, 102, 255, 51), "#{albumPath}/#{track}")
       @buttons << btn
-      currentYPos += 340
+      currentXPos += 940
+      if(cnt % 2 == 0)
+        currentYPos += 340
+        currentXPos = 20
+      end
+      cnt+=1
     end
   end
   def draw()
