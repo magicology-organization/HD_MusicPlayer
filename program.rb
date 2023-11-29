@@ -2,9 +2,6 @@ require 'gosu'
 require './UI_Components/MsMenu.rb'
 require './UI_Components/AlbumMenu.rb'
 
-# module ZOrder
-#   TEXT = 1
-# end
 
 class TestWindow < Gosu::Window
   def initialize()

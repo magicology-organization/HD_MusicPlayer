@@ -1,5 +1,5 @@
 require "gosu"
-require './UI_Components/PlayButton.rb'
+require './UI_Components/buttons/AlbumButton.rb'
 require './UI_Components/MsMenu.rb'
 
 class AlbumMenu < MsMenu
@@ -15,7 +15,7 @@ class AlbumMenu < MsMenu
     currentXPos = 20
     currentYPos = 70;
     trackNames.each do |track|
-      btn = PlayButton.new(currentXPos, currentYPos, 900 , 300, Gosu::Color.argb(100, 102, 255, 51), "#{albumPath}/#{track}")
+      btn = AlbumButton.new(currentXPos, currentYPos, 900 , 300, Gosu::Color.argb(100, 102, 255, 51), "#{albumPath}/#{track}")
       @buttons << btn
       currentXPos += 940
       if(cnt % 2 == 0)
