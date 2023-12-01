@@ -1,5 +1,5 @@
 require "gosu"
-require './UI_Components/PlayButton.rb'
+require './UI_Components/buttons/SongButton.rb'
 require 'json'
 
 #Changes including:
@@ -7,6 +7,9 @@ require 'json'
 # UI changed: Adding texts
 # UI changed: Adding album covers
 
+module ZOrder
+  TEXT = 1
+end
 class MsMenu
   attr_writer :color
   attr_accessor :functionButton
@@ -16,16 +19,18 @@ class MsMenu
     @currentTrack
     initMenu(album)
     @functionButton = Shape.new(13, 13, 55, 55, Gosu::Color::FUCHSIA)
+    @font = Gosu::Font.new(80)
+    @subfont = Gosu::Font.new(60)
   end
 
   def initMenu(album)
     @buttons = Array.new()
     trackNames = print_music_names("#{album}")
-    puts readMetadata("#{album}")
     puts "#{album}"
+    @albumData = readMetadata("#{album}")
     currentYPos = 80;
     trackNames.each do |track|
-      btn = PlayButton.new(200, currentYPos, 500, 80, Gosu::Color.argb(100, 102, 255, 51), "#{album}/#{track}")
+      btn = SongButton.new(200, currentYPos, 1100, 80, Gosu::Color.argb(100, 102, 255, 51), "#{album}/#{track}")
       @buttons << btn
       currentYPos += 150
     end
@@ -37,6 +42,10 @@ class MsMenu
       btn.draw()
     end
     @functionButton.draw()
+    bg = Gosu::Image.new(@albumData['img'])
+    @font.draw_text(@albumData['altname'], 1400, 10, z = ZOrder::TEXT, 1.0, 1.0, Gosu::Color::WHITE)
+    bg.draw(1400, 100, 1, 1.67, 1.67)
+    # bg.draw(1400, 20)
   end
   def selected(mouse_x, mouse_y)
     flag = false

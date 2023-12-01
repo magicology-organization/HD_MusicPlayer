@@ -1,6 +1,7 @@
 {
     "genre": "Piano covers",
-    "author": "báo thủ",
+    "author": "Tiger Slayer",
     "published": "2023",
-    "img": "./asserts/images/Piano_cover.jpg"
+    "img": "./asserts/images/Piano_cover.jpg",
+    "altname": "Piano Playlist"
 }

@@ -2,5 +2,6 @@
     "genre": "anime covers",
     "author": "various artists",
     "published": "2012",
-    "img": "./asserts/images/AOT_cover.jpg"
+    "img": "./asserts/images/AOT_cover.jpg",
+    "altname": "Attack On Titan"
 }

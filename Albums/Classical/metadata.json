@@ -2,5 +2,6 @@
     "genre": "classical",
     "author": "various artists",
     "published": "1910",
-    "img": "./asserts/images/Chopin_cover.jpg"
+    "img": "./asserts/images/Chopin_cover.jpg",
+    "altname": "Chopin"
 }
