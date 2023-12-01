@@ -1,5 +1,6 @@
 {
     "genre": "classical",
     "author": "various artists",
-    "published": "1910"
+    "published": "1910",
+    "img": "./asserts/images/Chopin_cover.jpg"
 }

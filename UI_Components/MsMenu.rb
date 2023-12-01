@@ -1,5 +1,11 @@
 require "gosu"
 require './UI_Components/PlayButton.rb'
+require 'json'
+
+#Changes including:
+# Use songBtn instead of PlayButton
+# UI changed: Adding texts
+# UI changed: Adding album covers
 
 class MsMenu
   attr_writer :color
@@ -15,6 +21,7 @@ class MsMenu
   def initMenu(album)
     @buttons = Array.new()
     trackNames = print_music_names("#{album}")
+    puts readMetadata("#{album}")
     puts "#{album}"
     currentYPos = 80;
     trackNames.each do |track|
@@ -60,18 +67,26 @@ class MsMenu
       puts "Error: Directory does not exist."
       return
     end
-
     # Get an array of all entries (files and directories) in the specified directory
     entries = Dir.entries(directory)
-
     # Filter out "." and ".." (current and parent directory) and select only .mp3 files
     music_files = entries.select do |entry|
       File.file?(File.join(directory, entry)) && entry.end_with?(".mp3")
     end
-
     # Print the names of music files
     puts "Music files in '#{directory}':"
     music_files.each { |music_file| puts music_file }
     return music_files
+  end
+
+  def readMetadata(directory)
+    # Specify the path to your JSON file
+    json_file_path = "#{directory}/metadata.json"
+    puts json_file_path
+    # Read the JSON file
+    json_data = File.read(json_file_path)
+    # Parse the JSON data
+    parsed_data = JSON.parse(json_data)
+    return parsed_data
   end
 end

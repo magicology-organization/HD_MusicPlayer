@@ -8,7 +8,8 @@ end
 
 class AlbumButton < Shape
     def initialize(x = 0, y = 0, width = 40, height = 40, color = Gosu::Color::RED, music_path = '')
-        @x = x
+        @x = x + 300
+        #Modify X var so everythings shifted left 300 px
         @y = y
         @width = width
         @height = height
@@ -23,12 +24,19 @@ class AlbumButton < Shape
       if (@selected)
           draw_outline()
       end
-      Gosu.draw_rect(@x, @y, @width, @height, @color)
+      Gosu.draw_rect(@x - 300, @y, @width, @height, @color)
+      #minus for the back of the album
       @font.draw_text(getAlbumName(@song_path), @x+10, @y+10, z = ZOrder::TEXT, 1.0, 1.0, Gosu::Color::WHITE)
       parsed_data = readMetadata
       @subfont.draw_text("Genre: #{parsed_data['genre']}", @x+10, @y+100, z = ZOrder::TEXT, 1.0, 1.0, Gosu::Color::WHITE)
       @subfont.draw_text("Author: #{parsed_data['author']}", @x+10, @y+170, z = ZOrder::TEXT, 1.0, 1.0, Gosu::Color::WHITE)
       @subfont.draw_text("Published: #{parsed_data['published']}", @x+10, @y+240, z = ZOrder::TEXT, 1.0, 1.0, Gosu::Color::WHITE)
+      #adding image and draw (by using data from JSON)
+      bg = Gosu::Image.new(parsed_data['img'])
+      #minus for cover and adding 10 as a small spacer
+      #Image import can be improved by including the img inside each album file, however since the read file is required
+      #so just let it be
+      bg.draw(@x - 290, @y + 10)
     end
 
     def emit_song()

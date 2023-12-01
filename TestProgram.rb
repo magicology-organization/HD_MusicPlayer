@@ -4,21 +4,15 @@ require './Core_programs/Shape.rb'
 
 class MusicPlayer < Gosu::Window
     def initialize
-        super(700, 700, false)
+        super(1920, 1080, false)
         self.caption = "Music player"
-        @drawing = Drawing.new(Gosu::Color::WHITE)
+        @drawing = Gosu::Image.new("asserts/images/bg.jpg")
     end
     def draw
-        @drawing.draw()
+        @drawing.draw(0, 0, 0, 0.5, 0.5, Gosu::Color::WHITE)
     end
     def update
-        if Gosu.button_down?(Gosu::MsRight)
-            shape = Shape.new(mouse_x, mouse_y, 10, 10, Gosu::Color::GREEN)
-            @drawing.addShape(shape)
-        end
-        if Gosu.button_down?(Gosu::MsLeft)
-            @drawing.select(mouse_x, mouse_y)
-        end
+
     end
 end
 
